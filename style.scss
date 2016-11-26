@@ -1,3 +1,114 @@
+/*! Leon Spanic copyright 2016   */
+/* SASS-based project */ 
+
+$font-stack: Helvetica, sans-serif;  /* Helvetica will be used, if not possible then sans-serif */
+$main-color: rgb(245,245,245); /* Whitesmoke */
+$dblue: #37536d;
+$lblue: #7396b7;
+
+	/* Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed). */
+
+body {
+	margin: auto;
+	background-color: $main-color;	
+	font: 100% $font-stack; 
+	/* While using the percent unit, 
+	your text remains fully scalable for mobile devices and for accessibility. */
+}
+
+header {
+	margin: 0 auto;
+	height: 600px; /* for development */
+	background-image:url("images/vfun94cuy4o-david-marcu.jpg");
+	background-repeat: no-repeat;
+    background-position: 65% 72%;  
+	h1 {
+		color: $main-color;
+		text-align: center;
+		padding-top: 200px;
+		
+	}
+}
+
+
+.container {
+	margin: auto;
+    max-width: 1200px;
+	height: 600px; /* for development */
+}
+
+#traka {
+	margin: 0 auto;
+	height: 90px;
+	background-color: rgba(0,0,0,0.6); /*  rgba(38,57,75,0.9) na ovaj nacin child ne inherita opacity */
+	filter: alpha(opacity=5); /* for IE8 and earlier */ 
+}
+
+nav { 
+	a {
+		border: 2px solid $dblue;
+		border-radius: 5px;
+		color: $lblue;
+		display: none;
+		padding: 10px 15px;
+		text-decoration: none;
+		font-size: 110%;
+		user-select: none;  		/* user cannot select text */
+		-moz-user-select: none;  	/* mozilla */
+		-webkit-user-select: none;  /* opera, safari, chrome and edge */
+		-ms-user-select: none;   	/* IE and edge */
+	}
+	
+	ul {
+		list-style-type: none;
+		margin: 0 auto;
+		width: 1100px; /* bez widtha margin: 0 auto nece centrirat */
+		padding-top: 20px;
+		overflow: hidden;
+		}
+	li {
+		display: inline;
+		float: left;
+		margin-bottom: 0;
+		margin-right: 10px;
+
+		a:link {
+			display: block;
+			}
+		a:visited {
+			text-decoration: none;
+			}
+		a:hover {
+			transition: color 0.5s ease 0s, border-color 0.5s ease 0s;	
+			text-decoration: none;
+			border: 2px solid #7396b7;
+			color: $main-color;
+			}
+		a:active {
+			text-decoration: none;
+			}
+		img#logo {
+			position: relative;
+			right: 10px;
+			width: 65px;
+			height: 55px;
+			}
+		img#cart{
+			position: relative;
+			top: 10px;
+			}
+		}
+}
+
+nav ul::after {
+    clear: both;
+}
+
+.right {
+	float: right;
+	
+}
+
 
 /* carousel 
 za navigaciju slikama, tockice i slideshow lijevo desno
@@ -30,3 +141,4 @@ za navigaciju slikama, tockice i slideshow lijevo desno
     border-radius: 50%;
 }
 */
+
