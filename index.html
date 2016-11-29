@@ -2,6 +2,10 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="styles-font.css">
+		<link href="https://file.myfontastic.com/djM2aF8PtwMH2tpEkwG3Bd/icons.css" rel="stylesheet">
+		<!-- potrebna oba retka iznad? -->
+		<link rel="icon" href="images/favicon.png" type="image/x-icon">
 
 		<meta charset="UTF-8">
 		<meta name="description" content="Hello, I'm Leon, creative web developer & user experience designer based in Zagreb - I create dynamic and beautiful websites">
@@ -29,7 +33,7 @@
 							<li><a href="#">Home</a></li>
 							<li><a href="#">About</a></li>
 							<li><a href="#">jQuery</a></li>
-							<li class="right"><img src="images/header-2-go-cart.png" id="cart" alt="go_cart"></li>
+							<li class="right icon-settings" id="cart" alt="go_cart"></li>  
 							<li class="right"><a href="#">Go deeper</a></li>
 						</ul>
 					</nav>
@@ -40,46 +44,99 @@
 		
 		
 		<main>
+			<section id="prvi">
+				<div class="container">
+					<h1> TABLES </h1>
+					<hr>
+					
+					<table>
+					  <tr>
+						<th>Webpage info</th>
+						<th>Data</th>
+						<th>Random</th>
+					  </tr>
+					  <tr>
+						<td>Tools used</td>
+						<td>SASS, Git, Firebug, Fontastic </td>
+						<td></td>
+					  </tr>
+					  <tr>
+						<td>Crossbrowser support</td>
+						<td>IE, Edge, Safari, Opera, Chrome, Mozilla</td>
+						<td></td>
+					  </tr>
+					  <tr>
+						<td>Responsive</td>
+						<td>Desktop, tablet (not yet :D), mobile (soon)</td>
+						<td></td>
+					  </tr>				  <tr>
+						<td>Font</td>
+						<td>Helvetica, sans-serif</td>
+						<td></td>
+					  </tr>
+					  <tr>
+						<td>Background color</td>
+						<td>Whitesmoke</td>
+						<td></td>
+					  </tr>
+					  <tr>
+						<td>SEO</td>
+						<td>(later)</td>
+						<td></td>
+					  </tr>
+					  <tr>
+						<td>Marin Čilić</td>
+						<td>je najbolji</td>
+						<td></td>
+					  </tr>
+					</table>
+					
 		
-		
-		
-		
-		
+				</div>
+			</section>
+			
+			
+			<section id="drugi">
+				<div class="container">
+					<h1> DRUGO </h1>
+					<hr>
+				
+				
+				</div>
+			</section>
+			
 		</main>
 		
 		
 		<footer>
-			<div class="clearfix"> </div>
 			<div class="container">
-				<div <!-- class="row" -->
-					<section>
-						<div>
-							<h1> FOOTER MENU </h1>
-							<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam </p>
-						</div>
-							
-						<div>
-							<h1> FREE DELIVERY </h1>
-							<img src="images/footer-1-box.png" id="box" alt="box">
-						</div>
-							
-						<div>
-							<h1> NEWSLETTER SIGNUP </h1>
-							 <form action="action_page.php">
-								<input type="text" id="email" name="email" placeholder="your.adress@email.com">
-								<input type="button" value="SEND" id="button">
-							</form>
-						</div>
-							
-						<div>
-							<h1> FIND US ON FACEBOOK </h1>
-							<a href="http://facebook.com"><img src="images/footer-2-like.png" id="like" alt="like, link to facebook"></a>
-						</div>
+				<section>
+					<div>
+						<h1> FOOTER MENU </h1>
+						<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam </p>
+					</div>
 						
-					</section>
-				</div>
-			<hr>
-			<p id="message"> This wasn't such a hard test :) </p>
+					<div>
+						<h1> bla bla </h1>
+						<img src="images/footer-1-box.png" id="box" alt="box">
+					</div>
+						
+					<div>
+						<h1> bla bla 2 neka forma </h1>
+						 <form action="action_page.php">
+							<input type="text" id="email" name="email" placeholder="your.adress@email.com">
+							<input type="button" value="SEND" id="button">
+						</form>
+					</div>
+						
+					<div>
+						<h1> FIND US ON SOCIAL NETWORKS </h1>
+						<a href="http://facebook.com"><img src="images/footer-2-like.png" id="like" alt="like, link to facebook"></a>
+					</div>
+					
+				</section>
+				<hr>
+				<p id="message"> This wasn't such a hard test :) </p>
 			</div>
 		</footer>
 
@@ -88,7 +145,7 @@
 <!-- na kraju stavljamo kako bi se prvo loadao HTML, a tek onda js downloadao -->
 <!-- google CDN linkovi za jQuery i jQuery UI:
 1. jer je obicno blize server userima, 
-2. omogucuje nam vise server upita odjednom, sa na�eg i googleovog -->
+2. omogucuje nam vise server upita odjednom, sa našeg i googleovog -->
 
 <script src="script.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

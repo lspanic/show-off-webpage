@@ -3,10 +3,14 @@
 
 $font-stack: Helvetica, sans-serif;  /* Helvetica will be used, if not possible then sans-serif */
 $main-color: rgb(245,245,245); /* Whitesmoke */
+$main-color3: #FFF5EE;
 $dblue: #37536d;
 $lblue: #7396b7;
+$llblue: #b7d8f7;
+$lgray: #cecece;
+$llgray: #f2f2f2;
 
-	/* Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed). */
+/* Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed). */
 
 body {
 	margin: auto;
@@ -18,8 +22,8 @@ body {
 
 header {
 	margin: 0 auto;
-	height: 600px; /* for development */
-	background-image:url("images/vfun94cuy4o-david-marcu.jpg");
+	height: 610px; /* for development */
+	background-image:url("images/vfun94cuy4o-david-min0.jpg");
 	background-repeat: no-repeat;
     background-position: 65% 72%;  
 	h1 {
@@ -53,7 +57,6 @@ nav {
 		padding: 10px 15px;
 		text-decoration: none;
 		font-size: 110%;
-		user-select: none;  		/* user cannot select text */
 		-moz-user-select: none;  	/* mozilla */
 		-webkit-user-select: none;  /* opera, safari, chrome and edge */
 		-ms-user-select: none;   	/* IE and edge */
@@ -61,8 +64,8 @@ nav {
 	
 	ul {
 		list-style-type: none;
-		margin: 0 auto;
-		width: 1100px; /* bez widtha margin: 0 auto nece centrirat */
+		margin: 0 auto;  /* bez widtha margin: 0 auto nece centrirat */
+		max-width: 1100px; /* sa width nece biti reponzivno */
 		padding-top: 20px;
 		overflow: hidden;
 		}
@@ -97,10 +100,21 @@ nav {
 			position: relative;
 			top: 10px;
 			}
+		&.icon-settings:before {
+			position: relative;
+			top: 9px;
+			font-size: 25px;
+			color: $lblue;
+			text-shadow: 1px 1px 1px gray;
+			}
 		}
 }
 
-nav ul::after {
+/* ::after is a pseudo element which allows you to insert content onto a page from CSS 
+(without it needing to be in the HTML). While the end result is not actually in the DOM, 
+it appears on the page as if it is.
+IE 8 only supports the single-colon */
+nav ul:after {
     clear: both;
 }
 
@@ -108,6 +122,117 @@ nav ul::after {
 	float: right;
 	
 }
+
+main {
+	h1 {
+		text-align: center;
+		color: $dblue;
+		text-shadow: 2px 2px 5px $lblue;
+		font-size: 150%;
+	}
+	hr {
+		color: $dblue;
+	}
+	table {
+		border-collapse: collapse;
+		width: 50%;
+		td, th {
+			border: 1px solid $lgray;
+			padding: 8px;
+		}
+		tr:nth-child(even){
+			background-color: $llgray;
+		}
+		& tr:hover {
+			background-color: $llblue;
+		}
+		th {
+			text-align: left;
+			background-color: $lblue;
+			color: $main-color;
+		}
+	}
+	section {
+		position: relative;
+		#prvi {
+			background-image:url("images/mountains-hero-min.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 50% 22%; 
+			opacity: 0.9;
+			margin: 0 auto;
+		}
+		#drugi {
+			/* ne trza ovako */
+			
+		}
+	}
+}
+
+section#drugi:after {
+		content: "";
+		background: url(images/mountains-hero.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 22%; 
+		top: 0px;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		opacity: 0.05;
+		height: 600px;
+		position: absolute;
+		z-index: -1;   
+		}
+
+section#drugi {
+	padding-top: 1px; 
+
+}
+
+@media screen and (max-width: 600px) {
+nav{
+	display: none;
+	li {
+		float: none;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	ul {
+		margin: 0 auto;  /* bez widtha margin: 0 auto nece centrirat */
+		max-width: 200px;
+	}
+}
+
+section{
+	width:100%;
+	margin-top: 5%;
+}
+
+article{
+	width:100%;
+	float:left;
+	margin-left: 1%;
+}
+
+article img{
+	display:block;
+	width:auto;
+	margin:0 auto;
+}
+
+main{
+	width:80%;
+	margin:0 auto;
+}
+
+iframe{
+	width:100%;
+	border:5px solid aqua;
+}
+	
+} // kraj media screena
+
 
 
 /* carousel 

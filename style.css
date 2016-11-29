@@ -13,9 +13,9 @@ body {
 
 header {
   margin: 0 auto;
-  height: 600px;
+  height: 610px;
   /* for development */
-  background-image: url("images/vfun94cuy4o-david-marcu.jpg");
+  background-image: url("images/vfun94cuy4o-david-min0.jpg");
   background-repeat: no-repeat;
   background-position: 65% 72%; }
   header h1 {
@@ -45,8 +45,6 @@ nav a {
   padding: 10px 15px;
   text-decoration: none;
   font-size: 110%;
-  user-select: none;
-  /* user cannot select text */
   -moz-user-select: none;
   /* mozilla */
   -webkit-user-select: none;
@@ -56,8 +54,9 @@ nav a {
 nav ul {
   list-style-type: none;
   margin: 0 auto;
-  width: 1100px;
   /* bez widtha margin: 0 auto nece centrirat */
+  max-width: 1100px;
+  /* sa width nece biti reponzivno */
   padding-top: 20px;
   overflow: hidden; }
 nav li {
@@ -84,13 +83,107 @@ nav li {
   nav li img#cart {
     position: relative;
     top: 10px; }
+  nav li.icon-settings:before {
+    position: relative;
+    top: 9px;
+    font-size: 25px;
+    color: #7396b7;
+    text-shadow: 1px 1px 1px gray; }
 
-nav ul::after {
+/* ::after is a pseudo element which allows you to insert content onto a page from CSS 
+(without it needing to be in the HTML). While the end result is not actually in the DOM, 
+it appears on the page as if it is.
+IE 8 only supports the single-colon */
+nav ul:after {
   clear: both; }
 
 .right {
   float: right; }
 
+main h1 {
+  text-align: center;
+  color: #37536d;
+  text-shadow: 2px 2px 5px #7396b7;
+  font-size: 150%; }
+main hr {
+  color: #37536d; }
+main table {
+  border-collapse: collapse;
+  width: 50%; }
+  main table td, main table th {
+    border: 1px solid #cecece;
+    padding: 8px; }
+  main table tr:nth-child(even) {
+    background-color: #f2f2f2; }
+  main table tr:hover {
+    background-color: #b7d8f7; }
+  main table th {
+    text-align: left;
+    background-color: #7396b7;
+    color: whitesmoke; }
+main section {
+  position: relative; }
+  main section #prvi {
+    background-image: url("images/mountains-hero-min.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 22%;
+    opacity: 0.9;
+    margin: 0 auto; }
+  main section #drugi {
+    /* ne trza ovako */ }
+
+section#drugi:after {
+  content: "";
+  background: url(images/mountains-hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 22%;
+  top: 0px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.05;
+  height: 600px;
+  position: absolute;
+  z-index: -1; }
+
+section#drugi {
+  padding-top: 1px; }
+
+@media screen and (max-width: 600px) {
+  nav {
+    display: none; }
+    nav li {
+      float: none;
+      padding-top: 0px;
+      padding-bottom: 0px; }
+    nav ul {
+      margin: 0 auto;
+      /* bez widtha margin: 0 auto nece centrirat */
+      max-width: 200px; }
+
+  section {
+    width: 100%;
+    margin-top: 5%; }
+
+  article {
+    width: 100%;
+    float: left;
+    margin-left: 1%; }
+
+  article img {
+    display: block;
+    width: auto;
+    margin: 0 auto; }
+
+  main {
+    width: 80%;
+    margin: 0 auto; }
+
+  iframe {
+    width: 100%;
+    border: 5px solid aqua; } }
 /* carousel 
 za navigaciju slikama, tockice i slideshow lijevo desno
 */
