@@ -3,7 +3,6 @@
 /* SASS-based project */
 /* Helvetica will be used, if not possible then sans-serif */
 /* Whitesmoke */
-/* Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed). */
 body {
   margin: auto;
   background-color: whitesmoke;
@@ -14,7 +13,6 @@ body {
 header {
   margin: 0 auto;
   height: 610px;
-  /* for development */
   background-image: url("../images/vfun94cuy4o-david-min0.jpg");
   background-repeat: no-repeat;
   background-position: 65% 72%; }
@@ -26,8 +24,10 @@ header {
 .container {
   margin: auto;
   max-width: 1200px;
-  height: 600px;
-  /* for development */ }
+  height: 470px; }
+
+.right {
+  float: right; }
 
 #traka {
   margin: 0 auto;
@@ -59,7 +59,12 @@ nav ul {
   max-width: 1100px;
   /* sa width nece biti reponzivno */
   padding-top: 20px;
+  box-sizing: border-box;
   overflow: hidden; }
+
+nav:after {
+  clear: both;
+  /* zasad nepotrebno */ }
 
 nav li {
   display: inline;
@@ -96,12 +101,6 @@ nav li {
 (without it needing to be in the HTML). While the end result is not actually in the DOM, 
 it appears on the page as if it is.
 IE 8 only supports the single-colon */
-nav ul:after {
-  clear: both; }
-
-.right {
-  float: right; }
-
 main h1 {
   text-align: center;
   color: #37536d;
@@ -113,10 +112,13 @@ main hr {
 
 main table {
   border-collapse: collapse;
-  width: 50%; }
+  width: 46%; }
   main table td, main table th {
     border: 1px solid #cecece;
-    padding: 8px; }
+    box-sizing: border-box;
+    /* The width and height properties (and min/max) includes content, padding and border, but not the margin */
+    padding: 8px;
+    height: 38px; }
   main table tr:nth-child(even) {
     background-color: #f2f2f2; }
   main table tr:hover {
@@ -125,37 +127,37 @@ main table {
     text-align: left;
     background-color: #7396b7;
     color: whitesmoke; }
+    main table th#info {
+      width: 35%; }
+  main table#prva {
+    float: left;
+    margin-left: 15px; }
+  main table#druga {
+    float: right;
+    margin-right: 15px; }
 
 main section {
   position: relative; }
-  main section #prvi {
-    background-image: url("../images/mountains-hero-min.jpg");
+  main section#drugi {
+    padding-top: 1px; }
+  main section#drugi:after {
+    content: "";
+    background: url(../images/mountains-hero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    -webkit-background-size: cover;
     background-position: 50% 22%;
-    opacity: 0.9;
-    margin: 0 auto;
-    /* ne trza ovo */ }
-  main section #drugi {
-    /* ne trza ovako */ }
-
-section#drugi:after {
-  content: "";
-  background: url(../images/mountains-hero.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 22%;
-  top: 0px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 0.05;
-  height: 600px;
-  position: absolute;
-  z-index: -1; }
-
-section#drugi {
-  padding-top: 1px; }
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.05;
+    height: 450px;
+    position: absolute;
+    z-index: -1;
+    /* :after trick za background i opacity, tako da opacity ne zahvati content, nego samo sliku koju z_indexamo u pozadinu jos */
+    /* Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed). */
+    /* bez & nece raditi, pripaziti kod ID-eva */ }
 
 @media screen and (max-width: 600px) {
   nav {
@@ -168,9 +170,6 @@ section#drugi {
       margin: 0 auto;
       /* bez widtha margin: 0 auto nece centrirat */
       max-width: 200px; }
-  section {
-    width: 100%;
-    margin-top: 5%; }
   article {
     width: 100%;
     float: left;

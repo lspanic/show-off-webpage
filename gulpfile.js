@@ -18,3 +18,6 @@ that we want to run when the files are changed. The great thing about this task 
 this task ‘default’, we can just run gulp when we want to run gulp,
  no need to specify a task! And it will now just sit and wait for files to be saved and then run our task!
 */
+
+
+/* namjestiti jos automatski refresh page  &  image loseless compression */

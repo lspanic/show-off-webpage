@@ -3,14 +3,11 @@
 
 $font-stack: Helvetica, sans-serif;  /* Helvetica will be used, if not possible then sans-serif */
 $main-color: rgb(245,245,245); /* Whitesmoke */
-$main-color3: #FFF5EE;
 $dblue: #37536d;
 $lblue: #7396b7;
 $llblue: #b7d8f7;
 $lgray: #cecece;
 $llgray: #f2f2f2;
-
-/* Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed). */
 
 body {
 	margin: auto;
@@ -22,7 +19,7 @@ body {
 
 header {
 	margin: 0 auto;
-	height: 610px; /* for development */
+	height: 610px;
 	background-image:url("../images/vfun94cuy4o-david-min0.jpg");
 	background-repeat: no-repeat;
     background-position: 65% 72%;  
@@ -38,8 +35,13 @@ header {
 .container {
 	margin: auto;
     max-width: 1200px;
-	height: 600px; /* for development */
+	height: 470px; 
 }
+
+.right {
+	float: right;
+}
+
 
 #traka {
 	margin: 0 auto;
@@ -67,17 +69,20 @@ nav {
 		margin: 0 auto;  /* bez widtha margin: 0 auto nece centrirat */
 		max-width: 1100px; /* sa width nece biti reponzivno */
 		padding-top: 20px;
+		box-sizing: border-box;
 		overflow: hidden;
+		}
+		&:after {
+			clear: both; /* zasad nepotrebno */
 		}
 	li {
 		display: inline;
 		float: left;
 		margin-bottom: 0;
 		margin-right: 10px;
-
 		a:link {
 			display: block;
-			}
+		}
 		a:visited {
 			text-decoration: none;
 			}
@@ -114,14 +119,7 @@ nav {
 (without it needing to be in the HTML). While the end result is not actually in the DOM, 
 it appears on the page as if it is.
 IE 8 only supports the single-colon */
-nav ul:after {
-    clear: both;
-}
 
-.right {
-	float: right;
-	
-}
 
 main {
 	h1 {
@@ -135,60 +133,66 @@ main {
 	}
 	table {
 		border-collapse: collapse;
-		width: 50%;
+		width: 46%;
 		td, th {
 			border: 1px solid $lgray;
+			box-sizing: border-box; 
+			/* The width and height properties (and min/max) includes content, padding and border, but not the margin */
 			padding: 8px;
+			height: 38px;
 		}
 		tr:nth-child(even){
 			background-color: $llgray;
 		}
-		& tr:hover {
+		tr:hover {
 			background-color: $llblue;
 		}
 		th {
 			text-align: left;
 			background-color: $lblue;
 			color: $main-color;
+			&#info {
+				width: 35%;
+			}
+		}
+
+		&#prva {
+			float:left;
+			margin-left: 15px;
+		}
+		&#druga {
+			float:right;
+			margin-right: 15px;
 		}
 	}
 	section {
 		position: relative;
-		#prvi {
-			background-image:url("../images/mountains-hero-min.jpg");
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: 50% 22%; 
-			opacity: 0.9;
-			margin: 0 auto;
-			/* ne trza ovo */
-		}
-		#drugi {
-			/* ne trza ovako */
+		&#prvi {
 			
 		}
-	}
-}
-
-section#drugi:after {
+		&#drugi {
+				padding-top: 1px; 	
+		}
+		&#drugi:after {
 		content: "";
 		background: url(../images/mountains-hero.jpg);
 		background-repeat: no-repeat;
 		background-size: cover;
+		-webkit-background-size: cover;
 		background-position: 50% 22%; 
 		top: 0px;
 		left: 0;
 		bottom: 0;
 		right: 0;
 		opacity: 0.05;
-		height: 600px;
+		height: 450px;
 		position: absolute;
 		z-index: -1;   
+		/* :after trick za background i opacity, tako da opacity ne zahvati content, nego samo sliku koju z_indexamo u pozadinu jos */
+		/* Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed). */
+		/* bez & nece raditi, pripaziti kod ID-eva */
 		}
-
-section#drugi {
-	padding-top: 1px; 
-
+	}
 }
 
 @media screen and (max-width: 600px) {
@@ -203,11 +207,6 @@ nav{
 		margin: 0 auto;  /* bez widtha margin: 0 auto nece centrirat */
 		max-width: 200px;
 	}
-}
-
-section{
-	width:100%;
-	margin-top: 5%;
 }
 
 article{
